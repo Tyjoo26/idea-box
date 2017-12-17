@@ -10,6 +10,8 @@ describe 'As a user' do
       click_on("Create Idea")
 
       expect(current_path).to eq(idea_path(Idea.last.id))
+
+      expect(page).to have_content("FLYING CARS")
     end
   end
 end

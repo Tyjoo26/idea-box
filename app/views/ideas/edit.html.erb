@@ -1,0 +1,8 @@
+<h1>Edit your Idea!</h1>
+
+<%= form_for @idea do |f| %>
+
+<%= f.text_field  :title, placeholder: "#{@idea.title}" %>
+
+<%= f.submit "Edit Idea", :class => "create_idea_button"%>
+<% end %>
