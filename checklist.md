@@ -6,11 +6,11 @@ Ideas
 
 [1/2] An idea can be destroyed only by the user that created it.
 
-[ ] When a user types a new idea into the form, there is a selection dropdown for choosing the correct category. See Categories below for more information.
+[X] When a user types a new idea into the form, there is a selection dropdown for choosing the correct category. See Categories below for more information.
 
 Categories
 
-[ ] Ideas belong to a category.
+[x] Ideas belong to a category.
 
 [ ] Categories can be created and destroyed by a logged-in admin user (regular logged in users cannot create categories).
 
