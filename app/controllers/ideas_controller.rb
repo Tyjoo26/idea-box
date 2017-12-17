@@ -1,8 +1,8 @@
 class IdeasController < ApplicationController
-
+  before_action :set_article, only: [:show, :edit]
 
   def show
-    @idea = Idea.find(params[:id])
+
   end
 
   def new
@@ -20,10 +20,23 @@ class IdeasController < ApplicationController
     end
   end
 
+  def edit
+
+  end
+
+  def update
+    @idea = Idea.update(idea_params)
+
+    redirect_to idea_path(@idea)
+  end
 
 
 
   private
+
+  def set_article
+    @idea = Idea.find(params[:id])
+  end
 
   def idea_params
     params.require(:idea).permit(:title)
