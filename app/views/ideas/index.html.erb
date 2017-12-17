@@ -1,0 +1,7 @@
+<h1>All Ideas for user</h1>
+<% @ideas.each do |idea| %>
+<%= idea.title %>
+<div class="delete-button">
+  <%= link_to "Delete", { action: :destroy, id: idea.id }, method: :delete, data: "Please confirm delete" %>
+</div>
+<% end %>

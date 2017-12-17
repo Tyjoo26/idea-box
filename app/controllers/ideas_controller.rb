@@ -1,6 +1,10 @@
 class IdeasController < ApplicationController
   before_action :set_article, only: [:show, :edit]
 
+  def index
+    @ideas = Idea.all
+  end
+
   def show
 
   end
@@ -10,11 +14,11 @@ class IdeasController < ApplicationController
   end
 
   def create
-    @idea = Idea.new(idea_params)
-    if @idea.save
+    idea = Idea.new(idea_params)
+    if idea.save
       flash[:success] = "You've created your new Idea!"
 
-      redirect_to idea_path(@idea)
+      redirect_to idea_path(idea)
     else
       render :new
     end
@@ -25,9 +29,16 @@ class IdeasController < ApplicationController
   end
 
   def update
-    @idea = Idea.update(idea_params)
+    idea = Idea.update(idea_params)
 
-    redirect_to idea_path(@idea)
+    redirect_to idea_path(idea)
+  end
+
+  def destroy
+    @idea = Idea.find(params[:id])
+    @idea.destroy
+
+    redirect_to ideas_path
   end
 
 
@@ -37,6 +48,7 @@ class IdeasController < ApplicationController
   def set_article
     @idea = Idea.find(params[:id])
   end
+
 
   def idea_params
     params.require(:idea).permit(:title)

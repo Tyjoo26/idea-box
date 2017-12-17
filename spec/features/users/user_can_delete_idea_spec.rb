@@ -11,7 +11,9 @@ describe "As a user" do
     it "will destroy that individual idea resource and redirect me to index without that resource that is deleted" do
       expect(page).to have_content("FLYING SHARKS")
 
-      click_button("Delete")
+      within(".delete-button") do
+        click_on("Delete")
+      end
 
       expect(current_path).to eq(ideas_path)
 
