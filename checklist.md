@@ -2,7 +2,7 @@ Ideas
 
 [1/2] An idea can be created by a user.
 
-[ ] An idea can be edited/updated only by the user that created it.
+[1/2] An idea can be edited/updated only by the user that created it.
 
 [ ] An idea can be destroyed only by the user that created it.
 
