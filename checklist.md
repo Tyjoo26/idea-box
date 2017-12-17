@@ -1,6 +1,6 @@
 Ideas
 
-[ ] An idea can be created by a user.
+[1/2] An idea can be created by a user.
 
 [ ] An idea can be edited/updated only by the user that created it.
 

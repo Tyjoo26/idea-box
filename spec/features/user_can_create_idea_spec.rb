@@ -7,7 +7,7 @@ describe 'As a user' do
 
       fill_in"idea[title]", with: "FLYING CARS"
 
-      click_link("Create Account")
+      click_on("Create Idea")
 
       expect(current_path).to eq(idea_path(Idea.last.id))
     end
