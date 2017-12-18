@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
 
-  root 'ideas#root'
+  root 'welcome#index'
 
-  resources :ideas
+  resources :users, only: [:new, :create, :show]
+
+  resources :categories do
+    resources :ideas
+  end
+
 end

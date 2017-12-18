@@ -1,53 +1,56 @@
 class IdeasController < ApplicationController
-  before_action :set_article, only: [:show, :edit]
 
   def index
-    @ideas = Idea.all
+    @category = Category.find(params[:category_id])
+    @ideas = @category.ideas.all
   end
 
   def show
-
+    @category = Category.find(params[:category_id])
+    @idea = @category.ideas.find(params[:id])
   end
 
   def new
-    @idea = Idea.new
+    @category = Category.find(params[:category_id])
+    @idea = @category.ideas.new
   end
 
   def create
-    idea = Idea.new(idea_params)
+    category = Category.find(params[:category_id])
+    idea = category.ideas.new(idea_params)
     if idea.save
       flash[:success] = "You've created your new Idea!"
 
-      redirect_to idea_path(idea)
+      redirect_to category_idea_path(category, idea)
     else
       render :new
     end
   end
 
   def edit
-
+    @category = Category.find(params[:category_id])
+    @idea = @category.ideas.find(params[:id])
   end
 
   def update
-    idea = Idea.update(idea_params)
+    category = Category.find(params[:category_id])
+    idea = category.ideas.update(idea_params)
 
-    redirect_to idea_path(idea)
+    redirect_to category_idea_path(category, idea)
   end
 
   def destroy
-    @idea = Idea.find(params[:id])
+    @category = Category.find(params[:category_id])
+    @idea = @category.ideas.find(params[:id])
     @idea.destroy
 
-    redirect_to ideas_path
+    redirect_to category_ideas_path(@category)
   end
 
 
 
   private
 
-  def set_article
-    @idea = Idea.find(params[:id])
-  end
 
 
   def idea_params
