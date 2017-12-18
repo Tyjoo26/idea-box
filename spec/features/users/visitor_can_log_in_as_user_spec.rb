@@ -9,9 +9,9 @@ describe "As a visitor" do
       click_link("Create Account")
 
       expect(current_path).to eq(new_user_path)
-
-      fill_in :user_name, with: "funbucket13"
-      fill_in :password, with: "test"
+      
+      fill_in"user[user_name]", with: "funbucket13"
+      fill_in"user[password]", with: "test"
 
       click_on "Create New User"
 
