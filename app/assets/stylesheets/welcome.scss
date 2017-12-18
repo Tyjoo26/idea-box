@@ -1,0 +1,37 @@
+$light-purp: #DECDF5;
+$light-tan: #F8F1FF;
+$cream: #FFF3D1;
+$light-blue: #247BA0;
+$font-color: #23B5D3;
+
+
+.nav-bar{
+  height: 100px;
+  background-color: $light-purp;
+  border: $light-blue 4px solid;
+  border-radius: 25px;
+}
+
+.nav-links{
+  float: right;
+  display:flex;
+  flex-direction:column;
+  margin-top: 30px;
+  margin-right: 10px;
+  border: $light-blue 4px solid;
+  border-radius: 25px;
+  padding: 10px;
+}
+
+.dashboard{
+  margin-top: 40px;
+  display:flex;
+  justify-content: center;
+  font-size: 32px;
+  color: $font-color;
+  font-style: italic;
+}
+
+body{
+  background-color: $light-tan;
+}
