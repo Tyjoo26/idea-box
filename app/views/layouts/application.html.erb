@@ -3,12 +3,12 @@
   <head>
     <title>IdeaBox</title>
     <%= csrf_meta_tags %>
-
+    <link rel="stylesheet" type="text/css" href="/stylesheets/reset.scss">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
     <nav class= "nav-bar">
-      <%= link_to image_tag("logo.png", width:120, height:120) %>
+      <%= link_to image_tag("logo.png", width:120, height:120), root_path %>
       <div class="nav-links">
         <%= link_to "Create Account", new_user_path %>
       </div>
