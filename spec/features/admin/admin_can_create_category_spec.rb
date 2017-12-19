@@ -11,7 +11,7 @@ describe "As a verified Admin" do
 
 
       fill_in"category[name]", with: "Terrible IDEAS"
-      click_on("Create Category")
+      click_on("Submit")
 
       expect(current_path).to eq(admin_category_path(Category.last.id))
       expect(page).to have_content("Terrible IDEAS")

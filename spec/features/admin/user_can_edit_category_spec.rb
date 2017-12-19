@@ -13,12 +13,13 @@ describe "as an admin" do
 
     click_link("Edit Category")
 
-    expect(current_path).to eq(edit_category_path(category))
+    expect(current_path).to eq(edit_admin_category_path(category))
 
     fill_in"category[name]", with: "BAD IDEA"
-    click_link("Edit")
+    click_on("Submit")
 
     expect(current_path).to eq(admin_category_path(category))
+    
     expect(page).to have_content("BAD IDEA")
     end
   end

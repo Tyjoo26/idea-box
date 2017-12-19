@@ -5,7 +5,7 @@ class Admin::CategoriesController < Admin::BaseController
     @categories = Category.all
   end
 
-  def show 
+  def show
   end
 
   def new
@@ -24,10 +24,13 @@ class Admin::CategoriesController < Admin::BaseController
   end
 
   def edit
+
   end
 
   def update
+    @category = Category.update(category_params)
 
+    redirect_to admin_category_path(@category)
   end
 
   def destroy
