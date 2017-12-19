@@ -7,6 +7,8 @@ describe "As a user" do
       @category = create(:category)
       @idea = @user.ideas.create(title: "FLYING PIGS", category: @category)
 
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
+
       visit edit_user_idea_path(@user, @idea)
     end
 

@@ -7,6 +7,8 @@ describe "As a user" do
       @category = Category.create(name: "Stupid Ideas")
       @idea = @user.ideas.create(title: "FLYING SHARKS", category: @category)
 
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
+
       visit user_ideas_path(@user)
     end
 
