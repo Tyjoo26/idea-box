@@ -24,8 +24,14 @@ RSpec.describe Idea, type: :model do
       expect(idea_1).to_not be_valid
     end
 
-    it "can save with a title and category" do
+    it "cant save an idea if not a user" do
       idea = Idea.new(title: "iPhone", category: @category)
+      expect(idea).to_not be_valid
+    end
+
+    it "can save with a title and category" do
+      user = create(:user)
+      idea = user.ideas.new(title: "iPhone", category: @category)
 
       expect(idea).to be_valid
     end
