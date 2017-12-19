@@ -12,7 +12,7 @@ Categories
 
 [x] Ideas belong to a category.
 
-[1/2] Categories can be created and updated by a logged-in admin user (regular logged in users cannot create categories).
+[x] Categories can be created and updated by a logged-in admin user (regular logged in users cannot create categories).
 
 [x] Categories can be destroyed by a logged-in admin user (regular logged in users cannot destroy categories).
 
@@ -32,9 +32,9 @@ Authentication and Authorization
 
 [ ] Users can only see their own ideas – they should not be able to visit another user’s page.
 
-[ ] Users cannot create ideas for other users.
+[x] Users cannot create ideas for other users.
 
-[ ] Users cannot create new categories – only the admin can do that.
+[x] Users cannot create new categories – only the admin can do that.
 
 [ ] Users cannot create images – only the admin can do that; however, a user can assign an image to their idea.
 
