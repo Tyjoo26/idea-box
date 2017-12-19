@@ -12,7 +12,7 @@ describe "As a user" do
 
       click_link("Login")
     end
-    it "will only display my logged in users info" do
+    xit "will only display my logged in users info" do
       fill_in'user_name', with: "123"
       fill_in'password', with: "123"
 

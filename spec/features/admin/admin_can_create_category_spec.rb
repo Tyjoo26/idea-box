@@ -21,7 +21,7 @@ end
 
 describe "As a default user" do
   describe "when i go to categories new" do
-    xit "should display a 404 error" do
+    it "should display a 404 error" do
       user = create(:user)
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
