@@ -3,10 +3,11 @@ require 'rails_helper'
 describe "As a user" do
   describe "I can click the delete button on the idea index" do
     before :each do
+      @user = User.create(user_name: "TYJOO", password: "123")
       @category = Category.create(name: "Stupid Ideas")
-      @idea = @category.ideas.create(title: "FLYING SHARKS")
+      @idea = @user.ideas.create(title: "FLYING SHARKS", category: @category)
 
-      visit category_ideas_path(@category)
+      visit user_ideas_path(@user)
     end
 
     it "will destroy that individual idea resource and redirect me to index without that resource that is deleted" do
@@ -16,7 +17,7 @@ describe "As a user" do
         click_on("Delete")
       end
 
-      expect(current_path).to eq(category_ideas_path(@category))
+      expect(current_path).to eq(user_ideas_path(@user))
 
       expect(page).to_not have_content("FLYING SHARKS")
     end
