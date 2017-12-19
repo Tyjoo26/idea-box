@@ -4,7 +4,7 @@ Ideas
 
 [x] An idea can be edited/updated only by the user that created it.
 
-[1/2] An idea can be destroyed only by the user that created it.
+[x] An idea can be destroyed only by the user that created it.
 
 [X] When a user types a new idea into the form, there is a selection dropdown for choosing the correct category. See Categories below for more information.
 
@@ -14,7 +14,7 @@ Categories
 
 [1/2] Categories can be created and updated by a logged-in admin user (regular logged in users cannot create categories).
 
-[1/2] Categories can be destroyed by a logged-in admin user (regular logged in users cannot destroy categories).
+[x] Categories can be destroyed by a logged-in admin user (regular logged in users cannot destroy categories).
 
 Images
 
