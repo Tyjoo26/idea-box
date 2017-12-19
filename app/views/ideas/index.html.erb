@@ -4,7 +4,9 @@
 <%= idea.category.name %>
 <div class="delete-button">
   <%= link_to "Delete", { action: :destroy, id: idea.id }, method: :delete, data: "Please confirm delete" %>
+  <%= link_to "Edit", edit_user_idea_path(current_user, idea)%>
 </div>
+
 <% end %>
 <div class="create-idea-button">
   <%= link_to "Create New Idea", new_user_idea_path(current_user) %>
