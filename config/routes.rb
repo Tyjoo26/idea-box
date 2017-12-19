@@ -10,9 +10,7 @@ Rails.application.routes.draw do
     resources :ideas, only: [:index, :show, :new, :create, :edit, :update, :destroy]
   end
 
-  resources :users, only: [:new, :create, :show] do
+  namespace :admin do
     resources :categories, only: [:new, :create, :edit, :update, :destroy]
   end
-
-  resources :categories
 end
