@@ -11,5 +11,14 @@ class ApplicationController < ActionController::Base
     current_user && current_user.admin?
   end
 
-  
+  def render_404
+    render file: "#{Rails.root}/public/404", layout: false, status: :not_found
+  end
+
+
+  def logged_in?
+    if current_user.nil?
+      render_404
+    end
+  end
 end

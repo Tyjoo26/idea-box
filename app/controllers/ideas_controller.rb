@@ -1,12 +1,15 @@
 class IdeasController < ApplicationController
   before_action :set_user
   before_action :categories_all
+  before_action :logged_in?
+
 
   def index
     @ideas = @user.ideas.all
   end
 
   def show
+    # byebug
     @idea = @user.ideas.find(params[:id])
   end
 
@@ -32,7 +35,7 @@ class IdeasController < ApplicationController
   end
 
   def update
-    @category = Category.all
+
     @idea = @user.ideas.update(idea_params)
 
     redirect_to user_idea_path(@user, @idea)
