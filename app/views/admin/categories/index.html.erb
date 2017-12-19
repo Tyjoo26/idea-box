@@ -1,0 +1,11 @@
+<div class="category-index">
+  All Categories
+  <section>
+    <% @categories.each do |category| %>
+    <%= category.name %>
+    <%= link_to "Delete Category", { action: :destroy, id: category.id }, method: :delete, data: "Please confirm delete" %>
+    <%= link_to "Edit Category", edit_admin_category_path(category)%>
+    <% end %>
+    <%= link_to "Create Category", new_admin_category_path %>
+  </section>
+</div>

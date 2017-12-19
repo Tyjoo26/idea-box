@@ -4,7 +4,7 @@ Ideas
 
 [x] An idea can be edited/updated only by the user that created it.
 
-[1/2] An idea can be destroyed only by the user that created it.
+[x] An idea can be destroyed only by the user that created it.
 
 [X] When a user types a new idea into the form, there is a selection dropdown for choosing the correct category. See Categories below for more information.
 
@@ -12,9 +12,9 @@ Categories
 
 [x] Ideas belong to a category.
 
-[1/2] Categories can be created and updated by a logged-in admin user (regular logged in users cannot create categories).
+[x] Categories can be created and updated by a logged-in admin user (regular logged in users cannot create categories).
 
-[1/2] Categories can be destroyed by a logged-in admin user (regular logged in users cannot destroy categories).
+[x] Categories can be destroyed by a logged-in admin user (regular logged in users cannot destroy categories).
 
 Images
 
@@ -28,13 +28,13 @@ The most simplistic way to implement images is to store a url to an online image
 
 Authentication and Authorization
 
-[1/2 ] Users need to log in to see their ideas.
+[x] Users need to log in to see their ideas.
 
 [ ] Users can only see their own ideas – they should not be able to visit another user’s page.
 
-[ ] Users cannot create ideas for other users.
+[x] Users cannot create ideas for other users.
 
-[ ] Users cannot create new categories – only the admin can do that.
+[x] Users cannot create new categories – only the admin can do that.
 
 [ ] Users cannot create images – only the admin can do that; however, a user can assign an image to their idea.
 

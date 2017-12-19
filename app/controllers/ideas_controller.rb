@@ -9,7 +9,7 @@ class IdeasController < ApplicationController
   end
 
   def show
-    # byebug
+
     @idea = @user.ideas.find(params[:id])
   end
 

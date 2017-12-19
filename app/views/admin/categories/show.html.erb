@@ -1,0 +1,5 @@
+<div class="category-show">
+  <%= @category.name %>
+  <%= link_to "Category Index", admin_categories_path %>
+  <%= link_to "Delete Category", { action: :destroy, id: @category.id }, method: :delete, data: "Please confirm delete" %>
+</div>
