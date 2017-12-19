@@ -1,9 +1,16 @@
+<div class="user_form">
+  To access your IdeaBox Account, please log in
+</div>
 <%= form_tag do  %>
+<div class="input-fields">
   <%= label_tag       :user_name  %>
   <%= text_field_tag  :user_name %>
-
-  <%= label_tag              :password%>
-  <%= password_field_tag     :password%>
-
+</div>
+<div class="input-fields">
+<%= label_tag              :password%>
+<%= password_field_tag     :password%>
+</div>
+<div class="submit-button">
   <%= submit_tag "Log In"%>
+</div>
 <% end %>
