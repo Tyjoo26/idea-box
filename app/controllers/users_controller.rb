@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   def show
-    
+
   end
 
   def new
@@ -19,10 +19,9 @@ class UsersController < ApplicationController
     end
   end
 
-
   private
 
     def users_params
-      params.require(:user).permit(:user_name, :password_digest)
+      params.require(:user).permit(:user_name, :password)
     end
 end
