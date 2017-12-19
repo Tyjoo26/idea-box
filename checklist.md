@@ -28,7 +28,7 @@ The most simplistic way to implement images is to store a url to an online image
 
 Authentication and Authorization
 
-[1/2 ] Users need to log in to see their ideas.
+[x] Users need to log in to see their ideas.
 
 [ ] Users can only see their own ideas – they should not be able to visit another user’s page.
 
