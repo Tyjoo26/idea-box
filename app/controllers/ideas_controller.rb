@@ -1,8 +1,8 @@
 class IdeasController < ApplicationController
 
   def index
-    @category = Category.find(params[:category_id])
-    @ideas = @category.ideas.all
+    @user = User.find(params[:user_id])
+    @ideas = @user.ideas.all
   end
 
   def show
@@ -42,11 +42,11 @@ class IdeasController < ApplicationController
   end
 
   def destroy
-    @category = Category.find(params[:category_id])
-    @idea = @category.ideas.find(params[:id])
+    @user = User.find(params[:user_id])
+    @idea = @user.ideas.find(params[:id])
     @idea.destroy
 
-    redirect_to category_ideas_path(@category)
+    redirect_to user_ideas_path(@user)
   end
 
 
