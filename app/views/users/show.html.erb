@@ -3,3 +3,9 @@
 <div class="user-show">
 Welcome, <%= current_user.user_name %>!
 </div>
+<div class="create-idea-button">
+  <%= link_to "Create New Idea", new_user_idea_path(current_user) %>
+</div>
+<div class="review-ideas">
+  <%= link_to "Review Your Ideas", user_ideas_path(current_user) %>
+</div>
