@@ -6,8 +6,8 @@ class IdeasController < ApplicationController
   end
 
   def show
-    @category = Category.find(params[:category_id])
-    @idea = @category.ideas.find(params[:id])
+    @user = User.find(params[:user_id])
+    @idea = @user.ideas.find(params[:id])
   end
 
   def new
@@ -28,15 +28,17 @@ class IdeasController < ApplicationController
   end
 
   def edit
-    @category = Category.find(params[:category_id])
-    @idea = @category.ideas.find(params[:id])
+    @user = User.find(params[:user_id])
+    @categories = Category.all
+    @idea = Idea.find(params[:id])
   end
 
   def update
-    category = Category.find(params[:category_id])
-    idea = category.ideas.update(idea_params)
+    @user = User.find(params[:user_id])
+    @category = Category.all
+    @idea = @user.ideas.update(idea_params)
 
-    redirect_to category_idea_path(category, idea)
+    redirect_to user_idea_path(@user, @idea)
   end
 
   def destroy
@@ -54,6 +56,6 @@ class IdeasController < ApplicationController
 
 
   def idea_params
-    params.require(:idea).permit(:title)
+    params.require(:idea).permit(:title, :category_id)
   end
 end

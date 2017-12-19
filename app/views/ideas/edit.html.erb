@@ -1,6 +1,6 @@
 <h1>Edit your Idea!</h1>
 
-<%= form_for [@category, @idea] do |f| %>
+<%= form_for [@user, @idea] do |f| %>
 
 <%= f.text_field  :title, placeholder: "#{@idea.title}" %>
 <%= f.collection_select :category_id, Category.order(:name), :id, :name, include_blank: true%>

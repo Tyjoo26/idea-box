@@ -3,10 +3,11 @@ require 'rails_helper'
 describe "As a user" do
   describe "when I visit the idea index, I can click the option to edit an idea" do
     before :each do
+      @user = User.create(user_name:"TYJOO", password: "123")
       @category = create(:category)
-      @idea = @category.ideas.create(title: "FLYING PIGS")
+      @idea = @user.ideas.create(title: "FLYING PIGS", category: @category)
 
-      visit edit_category_idea_path(@idea.category, @idea)
+      visit edit_user_idea_path(@user, @idea)
     end
 
 
@@ -17,7 +18,7 @@ describe "As a user" do
 
       click_button("Edit Idea")
 
-      expect(current_path).to eq(category_idea_path(@idea.category, @idea))
+      expect(current_path).to eq(user_idea_path(@user, @idea))
 
       expect(page).to have_content("FLYING SHARKS")
       expect(page).to have_content("Idiotic Ideas")
