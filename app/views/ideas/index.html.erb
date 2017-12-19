@@ -1,8 +1,13 @@
-<h1>All Ideas for Category</h1>
+<h1>All Ideas for <%= current_user.user_name %></h1>
 <% @ideas.each do |idea| %>
 <%= idea.title %>
 <%= idea.category.name %>
 <div class="delete-button">
   <%= link_to "Delete", { action: :destroy, id: idea.id }, method: :delete, data: "Please confirm delete" %>
+  <%= link_to "Edit", edit_user_idea_path(current_user, idea)%>
 </div>
+
 <% end %>
+<div class="create-idea-button">
+  <%= link_to "Create New Idea", new_user_idea_path(current_user) %>
+</div>

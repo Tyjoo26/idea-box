@@ -11,7 +11,7 @@ describe "As a visitor" do
       expect(current_path).to eq(new_user_path)
 
       fill_in"user[user_name]", with: "funbucket13"
-      fill_in"user[password_digest]", with: "test"
+      fill_in"user[password]", with: "test"
 
       click_on "Create New User"
 

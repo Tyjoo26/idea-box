@@ -1,59 +1,66 @@
 class IdeasController < ApplicationController
+  before_action :set_user
+  before_action :categories_all
+  before_action :logged_in?
+
 
   def index
-    @category = Category.find(params[:category_id])
-    @ideas = @category.ideas.all
+    @ideas = @user.ideas.all
   end
 
   def show
-    @category = Category.find(params[:category_id])
-    @idea = @category.ideas.find(params[:id])
+    # byebug
+    @idea = @user.ideas.find(params[:id])
   end
 
   def new
-    @category = Category.find(params[:category_id])
-    @idea = @category.ideas.new
+
+    @idea = @user.ideas.new
   end
 
   def create
-    category = Category.find(params[:category_id])
-    idea = category.ideas.new(idea_params)
-    if idea.save
+    @idea = @user.ideas.new(idea_params)
+    if @idea.save
       flash[:success] = "You've created your new Idea!"
 
-      redirect_to category_idea_path(category, idea)
+      redirect_to user_idea_path(@user, @idea)
     else
       render :new
     end
   end
 
   def edit
-    @category = Category.find(params[:category_id])
-    @idea = @category.ideas.find(params[:id])
+
+    @idea = Idea.find(params[:id])
   end
 
   def update
-    category = Category.find(params[:category_id])
-    idea = category.ideas.update(idea_params)
 
-    redirect_to category_idea_path(category, idea)
+    @idea = @user.ideas.update(idea_params)
+
+    redirect_to user_idea_path(@user, @idea)
   end
 
   def destroy
-    @category = Category.find(params[:category_id])
-    @idea = @category.ideas.find(params[:id])
+    @idea = @user.ideas.find(params[:id])
     @idea.destroy
 
-    redirect_to category_ideas_path(@category)
+    redirect_to user_ideas_path(@user)
   end
 
 
 
   private
 
+  def set_user
+    @user = User.find(params[:user_id])
+  end
 
+  def categories_all
+    @categories = Category.all
+  end
 
   def idea_params
-    params.require(:idea).permit(:title)
+    params.require(:idea).permit(:title, :category_id)
   end
 end

@@ -6,7 +6,9 @@ describe "As a visitor, when i visit the home page" do
     visit '/'
 
     expect(current_path).to eq(root_path)
-    click_link("Log In")
+
+    click_on("Login")
+
     expect(current_path).to eq(login_path)
 
     fill_in "user_name", with: "TYJ"
