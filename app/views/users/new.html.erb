@@ -1,5 +1,15 @@
-<%= form_for @user do |f| %>
-  <%= f.text_field :user_name, placeholder: "Username" %>
-  <%= f.password_field :password_digest, placeholder: "Password"%>
-  <%= f.submit "Create New User"%>
-<% end %>
+<div class="user_form">
+  Please create an IdeaBox account!
+</div>
+  <%= form_for @user do |f| %>
+  <div class="input-fields">
+    <%= f.text_field :user_name, placeholder: "Username" %>
+  </div>
+    <div class="input-fields">
+    <%= f.password_field :password_digest, placeholder: "Password"%>
+  </div>
+    <div class="submit-button">
+    <%= f.submit "Create New User"%>
+  </div>
+  <% end %>
+</div>
