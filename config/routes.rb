@@ -15,6 +15,6 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :pictures, only: [:new, :create, :show, :index]
+    resources :pictures, only: [:new, :create, :index]
   end
 end
