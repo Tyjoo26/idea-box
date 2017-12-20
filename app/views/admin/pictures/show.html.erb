@@ -1,6 +1,7 @@
 <%= link_to 'All Pictures', admin_pictures_path %>
 <h1><%= @picture.title %></h1>
 
-<%= image_tag(@picture.image.url, alt: 'Image') if @picture.image? %>
+<%= link_to(image_tag(@picture.image.thumb.url, alt: 'Image'), @picture.image.url, target: '_blank') if @picture.image? %>
+
 
 <p><%= @picture.body %></p>
