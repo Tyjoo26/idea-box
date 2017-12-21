@@ -1,0 +1,11 @@
+<div class="picture-index">
+  <h1>Pictures</h1>
+
+  <%= link_to 'Add Picture', new_admin_picture_path %>
+
+  <% @pictures.each do |picture| %>
+  <%= picture.title %>
+  <%= image_tag(picture.image.url, alt: 'Image') if picture.image? %>
+  <%= picture.body %>
+  <% end %>
+</div>

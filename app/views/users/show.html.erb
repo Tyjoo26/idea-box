@@ -9,3 +9,11 @@ Welcome, <%= current_user.user_name %>!
 <div class="review-ideas">
   <%= link_to "Review Your Ideas", user_ideas_path(current_user) %>
 </div>
+<% if current_user.admin? %>
+<div class="create-category">
+  <%= link_to "Create Category", new_admin_category_path %>
+</div>
+<div class="create-pic">
+  <%= link_to "Create Picture", new_admin_picture_path %>
+</div>
+<% end %>
