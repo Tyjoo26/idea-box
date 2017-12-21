@@ -5,7 +5,11 @@ class IdeasController < ApplicationController
 
 
   def index
-    @ideas = @user.ideas.all
+    if current_user.id == session[:user_id]
+      @ideas = @user.ideas.all
+    else
+      render_404
+    end
   end
 
   def show

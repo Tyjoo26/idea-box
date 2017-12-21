@@ -2,7 +2,11 @@ class UsersController < ApplicationController
   before_action :logged_in?, only: [:show]
 
   def show
-    @user = User.find(params[:id])
+    if current_user.id == session[:user_id]
+      @user = User.find(params[:id])
+    else
+      render_404
+    end
   end
 
   def new
