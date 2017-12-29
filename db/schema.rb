@@ -31,14 +31,6 @@ ActiveRecord::Schema.define(version: 20171220220220) do
     t.index ["user_id"], name: "index_ideas_on_user_id"
   end
 
-  create_table "images", force: :cascade do |t|
-    t.string "name"
-    t.text "description"
-    t.string "picture"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "pictures", force: :cascade do |t|
     t.string "title"
     t.text "body"

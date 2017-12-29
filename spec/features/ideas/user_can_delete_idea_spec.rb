@@ -10,11 +10,12 @@ describe "As a user" do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
 
       visit user_ideas_path(@user)
+
     end
 
     it "will destroy that individual idea resource and redirect me to index without that resource that is deleted" do
-
       expect(page).to have_content("FLYING SHARKS")
+
       within(".delete-button") do
         click_on("Delete")
       end
