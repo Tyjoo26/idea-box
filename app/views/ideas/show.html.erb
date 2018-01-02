@@ -1,6 +1,9 @@
 <h1>Idea Details</h1>
 <%= @idea.title %>
 <%= @idea.category.name %>
+<% @idea.pictures.each do |picture| %>
+  <%= image_tag(picture.image.url, alt: 'Image', height: 150, width: 150) if picture.image? %>
+<% end %>
 <%= link_to "Change Your Idea", edit_user_idea_path(@user, @idea) %>
 <%= link_to "Delete", { action: :destroy, id: @idea.id }, method: :delete, data: "Please confirm delete" %>
 <%= link_to "Go Back to your Ideas", user_ideas_path(@user) %>
