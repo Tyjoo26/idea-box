@@ -1,13 +1,26 @@
-<h1>All Ideas for <%= current_user.user_name %></h1>
-<% @ideas.each do |idea| %>
-<%= idea.title %>
-<%= idea.category.name %>
-<div class="delete-button">
-  <%= link_to "Delete", { action: :destroy, id: idea.id }, method: :delete, data: "Please confirm delete" %>
-  <%= link_to "Edit", edit_user_idea_path(current_user, idea)%>
-</div>
+<div class="idea-index">
+  <div class="user-show">
 
-<% end %>
-<div class="create-idea-button">
-  <%= link_to "Create New Idea", new_user_idea_path(current_user) %>
+  <h1>All Ideas for <%= current_user.user_name %></h1>
+  </div>
+  <div class="create-idea-button">
+    <%= link_to "Create New Idea", new_user_idea_path(current_user) %>
+  </div>
+    <% @ideas.each do |idea| %>
+  <div class="index-ideas">
+  Idea Name: <%= idea.title %>
+    <br>
+  Idea Category: <%= idea.category.name %>
+    <br>
+    <br>
+    <% idea.pictures.each do |picture| %>
+      <%= image_tag(picture.image.url, alt: 'Image', height: 150, width: 150) if picture.image? %>
+    <% end %>
+    <div class="delete-button">
+      <%= link_to "Delete", { action: :destroy, id: idea.id }, method: :delete, data: "Please confirm delete" %>
+      <%= link_to "Edit", edit_user_idea_path(current_user, idea)%>
+    </div>
+
+    <% end %>
+    </div>
 </div>

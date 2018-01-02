@@ -1,7 +1,15 @@
 <%= form_for [@user, @idea] do |f| %>
 
-<%= f.text_field  :title, placeholder: "Insert Title" %>
-<%= f.collection_select :category_id, Category.order(:name), :id, :name, include_blank: true%>
+Title Of Idea:  <%= f.text_field  :title, placeholder: "Insert Title" %>
+<br>
+Title Category:  <%= f.collection_select :category_id, Category.order(:name), :id, :name, include_blank: true%>
+
+<% @pictures.each do |picture| %>
+<div class="picture-card-<%=picture.id%>">
+  <%= image_tag(picture.image.url, alt: 'Image', height: 150, width: 150) if picture.image? %>
+  <%= check_box_tag 'picture_ids[]', picture.id -%>
+</div>
+<% end %>
 
 <%= f.submit "Create Idea", :class => "create_idea_button"%>
 <% end %>

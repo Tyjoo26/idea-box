@@ -13,20 +13,19 @@ class IdeasController < ApplicationController
   end
 
   def show
-
     @idea = @user.ideas.find(params[:id])
   end
 
   def new
-
     @idea = @user.ideas.new
+    @pictures = Picture.all
   end
 
   def create
     @idea = @user.ideas.new(idea_params)
     if @idea.save
       flash[:success] = "You've created your new Idea!"
-
+      Upload.create(picture_id: params[:picture_ids][0].to_i, idea_id: @idea.id)
       redirect_to user_idea_path(@user, @idea)
     else
       render :new
@@ -34,15 +33,16 @@ class IdeasController < ApplicationController
   end
 
   def edit
-
     @idea = Idea.find(params[:id])
+    @pictures = Picture.all
   end
 
   def update
-
     @idea = @user.ideas.update(idea_params)
 
+    Upload.create(picture_id: params[:picture_ids][0].to_i, idea_id: @idea.last.id)
     redirect_to user_idea_path(@user, @idea)
+    
   end
 
   def destroy
