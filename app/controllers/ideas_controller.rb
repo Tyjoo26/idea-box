@@ -22,13 +22,7 @@ class IdeasController < ApplicationController
   end
 
   def create
-    # todo: create idea, pass it to the other view
-    # create upload association so we can access obj.ideas and obj.pictures...
-
     @idea = @user.ideas.new(idea_params)
-
-    # idea_id, picture_id
-
     if @idea.save
       flash[:success] = "You've created your new Idea!"
       Upload.create(picture_id: params[:picture_ids][0].to_i, idea_id: @idea.id)
@@ -40,12 +34,15 @@ class IdeasController < ApplicationController
 
   def edit
     @idea = Idea.find(params[:id])
+    @pictures = Picture.all
   end
 
   def update
     @idea = @user.ideas.update(idea_params)
 
+    Upload.create(picture_id: params[:picture_ids][0].to_i, idea_id: @idea.last.id)
     redirect_to user_idea_path(@user, @idea)
+    
   end
 
   def destroy
